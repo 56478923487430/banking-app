@@ -16,6 +16,7 @@ html {
   height: 100%;
   color: #ffffff;
   overflow-x: hidden;
+  background-color: #000000;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -1563,6 +1564,7 @@ footer {
 .pin-key {
   width: 100%;
   aspect-ratio: 1;
+  max-width: 72px;
   max-height: 72px;
   border-radius: 50%;
   font-size: 1.5em;
@@ -1573,6 +1575,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 0 auto;
 }
 
 .pin-key:hover {
