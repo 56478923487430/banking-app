@@ -2,7 +2,10 @@
   "name": "banking-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": ".",
   "dependencies": {
+    "jspdf": "^2.5.2",
+    "jspdf-autotable": "^3.8.4",
     "react": "^19.2.7",
     "react-dom": "^19.2.7",
     "react-router-dom": "^7.17.0",
@@ -14,7 +17,9 @@
     "build": "set \"GENERATE_SOURCEMAP=false\" && react-scripts build",
     "eslint": "eslint ./src",
     "prettier": "prettier --check **",
-    "prettier fix": "prettier --write **"
+    "prettier fix": "prettier --write **",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [

@@ -1,11 +1,17 @@
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
 // components
 import Input from '../components/Form/Input';
 import Button from '../components/Form/Button';
 
+import { isSignedIn, signIn } from '../utils/auth';
+
 const Signin: React.FC = () => {
   const navigate = useNavigate();
+
+  if (isSignedIn()) {
+    return <Navigate to='/' replace />;
+  }
 
   /**
    * Handles the form submission event by preventing the default behavior and navigating to the home page.
@@ -15,6 +21,7 @@ const Signin: React.FC = () => {
   const handleSubmit = (e: React.FormEvent): void => {
     e.preventDefault();
 
+    signIn();
     navigate('/home', { replace: true });
   };
 

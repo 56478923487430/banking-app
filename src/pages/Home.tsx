@@ -6,22 +6,33 @@ import History from '../components/History/History';
 import Widgets from '../components/Widgets/Widgets';
 import Divider from '../components/Divider/Divider';
 
-const Home: React.FC = () => (
-  <Layout>
-    <Balance balance={1325.5} currency='EURO' currencySymbol='€' />
+// context
+import { useAppContext } from '../context/AppContext';
 
-    <Actions />
+const Home: React.FC = () => {
+  const { transactions, selectedAccountId } = useAppContext();
 
-    <Divider />
+  const accountTransactions = transactions
+    .filter((t) => t.accountId === selectedAccountId)
+    .slice(0, 4);
 
-    <History />
+  return (
+    <Layout>
+      <Balance />
 
-    <Divider />
+      <Actions />
 
-    <Widgets />
+      <Divider />
 
-    <Divider />
-  </Layout>
-);
+      <History transactions={accountTransactions} showSeeAll compact clickable />
+
+      <Divider />
+
+      <Widgets />
+
+      <Divider />
+    </Layout>
+  );
+};
 
 export default Home;

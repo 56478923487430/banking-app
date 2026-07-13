@@ -2,13 +2,13 @@ import { Link } from 'react-router-dom';
 
 const Widgets: React.FC = () => (
   <div className='widgets flex flex-v-center flex-space-between'>
-    <Link to='/transactions' className='widget no-select flex flex-col flex-v-center flex-h-center'>
-      <span className='material-symbols-outlined'>sync_alt</span>
-      <p>Transactions</p>
+    <Link to='/support' className='widget no-select flex flex-col flex-v-center flex-h-center'>
+      <span className='material-symbols-outlined'>support_agent</span>
+      <p>Support</p>
     </Link>
-    <Link to='/cards' className='widget no-select flex flex-col flex-v-center flex-h-center'>
-      <span className='material-symbols-outlined'>credit_card</span>
-      <p>Cards</p>
+    <Link to='/faq' className='widget no-select flex flex-col flex-v-center flex-h-center'>
+      <span className='material-symbols-outlined'>quiz</span>
+      <p>FAQ</p>
     </Link>
     <Link to='/savings' className='widget no-select flex flex-col flex-v-center flex-h-center'>
       <span className='material-symbols-outlined'>savings</span>

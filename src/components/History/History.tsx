@@ -3,17 +3,28 @@ import { Link } from 'react-router-dom';
 // components
 import HistoryLine from './HistoryLine';
 
+// types
+import type { Transaction } from '../../types';
+
 // interfaces
 interface IProps {
   date?: string;
   detailed?: boolean;
   dateBalance?: string;
+  transactions: Transaction[];
+  showSeeAll?: boolean;
+  compact?: boolean;
+  clickable?: boolean;
 }
 
 const History: React.FC<IProps> = ({
   date = undefined,
   detailed = false,
   dateBalance = undefined,
+  transactions,
+  showSeeAll = false,
+  compact = false,
+  clickable = false,
 }) => (
   <>
     {detailed && (
@@ -23,84 +34,13 @@ const History: React.FC<IProps> = ({
       </div>
     )}
     <div className='history'>
-      <HistoryLine
-        item={{
-          id: 1,
-          icon: 'coffee',
-          time: '15:34',
-          name: 'Coffee',
-          amount: 3.25,
-          color: 'purple',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 2,
-          icon: 'hotel',
-          time: '12:21',
-          name: 'Hotel booking',
-          amount: 323.26,
-          color: 'yellow',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 3,
-          icon: 'sync',
-          time: '11:46',
-          name: 'Subscription payment',
-          amount: 9.99,
-          color: 'orange',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 4,
-          icon: 'water',
-          time: '10:51',
-          name: 'Water bill',
-          amount: 54.21,
-          color: 'gray',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 5,
-          icon: 'water',
-          time: '09:14',
-          name: 'Supermarket',
-          amount: 78.12,
-          color: 'red',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 5,
-          icon: 'local_activity',
-          time: '09:14',
-          name: 'Tickets',
-          amount: 78.12,
-          color: 'blue',
-          currencySymbol: '€',
-        }}
-      />
-      <HistoryLine
-        item={{
-          id: 5,
-          icon: 'bolt',
-          time: '07:33',
-          name: 'Electricty bill',
-          amount: 43.55,
-          color: 'green',
-          currencySymbol: '€',
-        }}
-      />
-      {!detailed && (
+      {transactions.length === 0 && (
+        <p className='history-empty text-shadow no-select center'>No transactions yet</p>
+      )}
+      {transactions.map((item) => (
+        <HistoryLine key={item.id} item={item} compact={compact} clickable={clickable} />
+      ))}
+      {showSeeAll && (
         <Link to='/transactions' className='history-line bottom flex flex-v-center flex-h-center'>
           See all
           <span className='material-symbols-outlined'>keyboard_arrow_right</span>
