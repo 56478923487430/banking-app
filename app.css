@@ -275,8 +275,6 @@ header .header-button span {
   overflow-x: hidden;
   padding: 15px;
   padding-top: calc(15px + env(safe-area-inset-top));
-  min-height: 100vh;
-  min-height: 100dvh;
 }
 
 .container {
