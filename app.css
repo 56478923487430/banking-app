@@ -275,6 +275,8 @@ header .header-button span {
   overflow-x: hidden;
   padding: 15px;
   padding-top: calc(15px + env(safe-area-inset-top));
+  min-height: 100vh;
+  min-height: 100dvh;
 }
 
 .container {
@@ -1051,14 +1053,35 @@ footer {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
 }
 
+.account-switcher .currency .material-symbols-outlined {
+  width: 1.2em;
+  flex-shrink: 0;
+  text-align: center;
+}
+
 .account-switcher-item {
   width: 100%;
+  gap: 10px;
   color: #ffffff;
   padding: 10px 12px;
   font-size: 0.9em;
   border-radius: 10px;
   text-align: left;
   background-color: transparent;
+}
+
+.account-switcher-item span:first-child {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.account-switcher-item span:last-child {
+  flex-shrink: 0;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
 }
 
 .account-switcher-item:hover {
@@ -1264,6 +1287,12 @@ footer {
 .button-secondary {
   background-color: rgba(255, 255, 255, 0.15);
   border-color: rgba(255, 255, 255, 0.15);
+}
+
+.transfer-pin-cancel {
+  width: 100%;
+  margin-top: 22px;
+  color: #ffffff;
 }
 
 .processing-screen {
@@ -1590,6 +1619,25 @@ footer {
 .pin-key-empty {
   visibility: hidden;
   pointer-events: none;
+}
+
+.pin-back-button {
+  gap: 8px;
+  display: flex;
+  margin: 26px auto 0;
+  color: #ffffff;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.75;
+  transition: opacity 0.2s;
+}
+
+.pin-back-button:hover {
+  opacity: 1;
+}
+
+.pin-back-button .material-symbols-outlined {
+  font-size: 1.2em;
 }
 
 .pin-hidden-input {
