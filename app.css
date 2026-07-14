@@ -242,6 +242,16 @@ header .header-button span {
   color: #ffffff;
 }
 
+.status-bar-fill {
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 999999;
+  background-color: #303136;
+  height: env(safe-area-inset-top);
+}
+
 .bg {
   top: calc(-1 * env(safe-area-inset-top));
   left: 0;
