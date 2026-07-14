@@ -275,6 +275,20 @@ header .header-button span {
   overflow-x: hidden;
   padding: 15px;
   padding-top: calc(15px + env(safe-area-inset-top));
+  /*
+   * Force every screen to be at least one full viewport tall.
+   * Screens whose content is shorter than the viewport (Inbox empty
+   * state, the "Processing transfer" loader, etc.) leave the page
+   * un-scrollable. On iOS Safari an un-scrollable page keeps the
+   * browser chrome fully expanded, which shrinks the visual viewport
+   * and pushes our `position: fixed` bottom nav up above where it
+   * sits on taller, scrollable pages. Guaranteeing a minimum height
+   * keeps the toolbar/viewport state — and therefore the bottom
+   * nav's position — consistent across every page.
+   */
+  min-height: 100vh;
+  min-height: 100dvh;
+  box-sizing: border-box;
 }
 
 .container {
