@@ -16,7 +16,7 @@ html {
   height: 100%;
   color: #ffffff;
   overflow-x: hidden;
-  background-color: #000000;
+  background-color: #303136;
   font-family: 'Poppins', sans-serif;
 }
 
@@ -242,16 +242,6 @@ header .header-button span {
   color: #ffffff;
 }
 
-.status-bar-fill {
-  top: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
-  z-index: 999999;
-  background-color: #303136;
-  height: env(safe-area-inset-top);
-}
-
 .bg {
   top: calc(-1 * env(safe-area-inset-top));
   left: 0;
@@ -280,10 +270,11 @@ header .header-button span {
   top: 0;
   left: 0;
   right: 0;
-  padding: 15px;
   z-index: 99999;
   position: absolute;
   overflow-x: hidden;
+  padding: 15px;
+  padding-top: calc(15px + env(safe-area-inset-top));
 }
 
 .container {
